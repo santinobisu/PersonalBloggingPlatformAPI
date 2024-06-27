@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|e:\\personalbloggingplatform\\personalbloggingplatformapi\\personalbloggingplatformapi.presentation\\personalbloggingplatformapi.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|solutionrelative:personalbloggingplatformapi.presentation\\personalbloggingplatformapi.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AE2CC8D-24FB-4A1E-9C3B-C89D625061CB}|PersonalBloggingPlatformAPI.Infrastructure\\PersonalBloggingPlatformAPI.Infrastructure.csproj|E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\personalbloggingplatformapi.infrastructure\\personalbloggingplatformapi.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9AE2CC8D-24FB-4A1E-9C3B-C89D625061CB}|PersonalBloggingPlatformAPI.Infrastructure\\PersonalBloggingPlatformAPI.Infrastructure.csproj|solutionrelative:personalbloggingplatformapi.infrastructure\\personalbloggingplatformapi.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FD452AC-11F9-4EF8-8D8F-1E5C38271E49}|PersonalBloggingPlatformAPI.Domain\\PersonalBloggingPlatformAPI.Domain.csproj|E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\personalbloggingplatformapi.domain\\personalbloggingplatformapi.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9FD452AC-11F9-4EF8-8D8F-1E5C38271E49}|PersonalBloggingPlatformAPI.Domain\\PersonalBloggingPlatformAPI.Domain.csproj|solutionrelative:personalbloggingplatformapi.domain\\personalbloggingplatformapi.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{196099D3-3EC6-4FBD-B49D-ABC3B676E27F}|PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj|E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\personalbloggingplatformapi.application\\personalbloggingplatformapi.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{196099D3-3EC6-4FBD-B49D-ABC3B676E27F}|PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj|solutionrelative:personalbloggingplatformapi.application\\personalbloggingplatformapi.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PersonalBloggingPlatformAPI.Presentation.csproj",
+              "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj",
+              "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj",
+              "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj",
+              "RelativeToolTip": "PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-27T21:27:44.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PersonalBloggingPlatformAPI.Infrastructure.csproj",
+              "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Infrastructure\\PersonalBloggingPlatformAPI.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Infrastructure\\PersonalBloggingPlatformAPI.Infrastructure.csproj",
+              "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Infrastructure\\PersonalBloggingPlatformAPI.Infrastructure.csproj",
+              "RelativeToolTip": "PersonalBloggingPlatformAPI.Infrastructure\\PersonalBloggingPlatformAPI.Infrastructure.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-27T21:27:40.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PersonalBloggingPlatformAPI.Domain.csproj",
+              "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Domain\\PersonalBloggingPlatformAPI.Domain.csproj",
+              "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Domain\\PersonalBloggingPlatformAPI.Domain.csproj",
+              "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Domain\\PersonalBloggingPlatformAPI.Domain.csproj",
+              "RelativeToolTip": "PersonalBloggingPlatformAPI.Domain\\PersonalBloggingPlatformAPI.Domain.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-27T21:27:33.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PersonalBloggingPlatformAPI.Application.csproj",
+              "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj",
+              "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj",
+              "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj",
+              "RelativeToolTip": "PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-27T21:27:24.171Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
