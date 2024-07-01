@@ -26,7 +26,18 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
 
         public async Task<Article> DeleteArticle(Guid id)
         {
-            throw new NotImplementedException();
+            var articleToDelete = await _appDbContext.Articles.FindAsync(id);
+
+            if (articleToDelete is null)
+            {
+                return null;
+            }
+
+            _appDbContext.Articles.Remove(articleToDelete);
+
+            await _appDbContext.SaveChangesAsync();
+
+            return articleToDelete;
         }
 
         public async Task<Article> GetArticle(Guid id)
@@ -35,9 +46,21 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
 
             return result;
         }
-        public async Task<Article> UpdateArticle(Article article)
+        public async Task<Article> UpdateArticle(Guid id, Article article)
         {
-            throw new NotImplementedException();
+            var articleToUpdate = await _appDbContext.Articles.FindAsync(id);
+
+            if (articleToUpdate is null)
+            {
+                return null;
+            }
+
+            articleToUpdate.Title = article.Title;
+            articleToUpdate.BodyText = article.BodyText;
+
+            await _appDbContext.SaveChangesAsync();
+
+            return article;
         }
     }
 }

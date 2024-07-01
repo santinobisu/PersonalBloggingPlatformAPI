@@ -9,6 +9,5 @@ namespace PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Request
 {
     public record CreateArticleRequest(
         string Title,
-        string BodyText,
-        DateTime PublishingDate);
+        string BodyText);
 }

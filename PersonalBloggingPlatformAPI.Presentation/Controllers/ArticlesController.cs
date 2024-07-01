@@ -26,7 +26,15 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
                 PublishingDate = DateTime.UtcNow
             };
 
-            await _articleService.CreateArticle(newArticle);
+            try
+            {
+                await _articleService.CreateArticle(newArticle);
+            }
+            catch (ArgumentException ex)
+            {
+                return Problem(statusCode: StatusCodes.Status400BadRequest,
+                    detail: ex.Message);
+            }
 
             return CreatedAtGetArticle(newArticle);
         }
@@ -40,6 +48,39 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
                 Problem(statusCode: StatusCodes.Status404NotFound, detail: $"Article not found (articleId {id})")
                 : Ok(getArticleResult);
 
+        }
+
+        [HttpDelete("{id:guid}")]
+        public async Task<ActionResult<ArticleResponse>> DeleteArticle(Guid id)
+        {
+            var deleteArticleResult = await _articleService.DeleteArticle(id);
+
+            return NoContent();
+        }
+
+        [HttpPut("{id:guid}")]
+        public async Task<ActionResult<ArticleResponse>> UpdateArticle(Guid id, [FromBody] UpdateArticleRequest request)
+        {
+            Article updatedArticle = new Article
+            {
+                Title = request.Title,
+                BodyText = request.BodyText
+            };
+
+            Article result = null;
+            try
+            {
+               result = await _articleService.UpdateArticle(id, updatedArticle);
+            }
+            catch (ArgumentException ex)
+            {
+                return Problem(statusCode: StatusCodes.Status400BadRequest,
+                    detail: ex.Message);
+            }
+
+            return result is null?
+                Problem(statusCode: StatusCodes.Status404NotFound, detail: $"Article not found (articleId {id})")
+                : NoContent();
         }
 
         private static ArticleResponse MapArticleResponse(Article article)

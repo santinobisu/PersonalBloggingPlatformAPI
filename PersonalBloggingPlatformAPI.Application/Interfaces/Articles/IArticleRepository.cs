@@ -11,7 +11,7 @@ namespace PersonalBloggingPlatformAPI.Application.Interfaces.Articles
     {
         Task<Article> CreateArticle(Article newArticle);
         Task<Article> GetArticle(Guid id);
-        Task<Article> UpdateArticle(Article article);
+        Task<Article> UpdateArticle(Guid id, Article article);
         Task<Article> DeleteArticle(Guid id);
     }
 }
