@@ -8,5 +8,7 @@ namespace PersonalBloggingPlatformAPI.Domain.Entities
         public string Title { get; set; } = null!;
         public string BodyText { get; set; } = null!;
         public DateTime PublishingDate { get; set; }
+        public List<Tag?> Tags { get; set; }
+
     }
 }

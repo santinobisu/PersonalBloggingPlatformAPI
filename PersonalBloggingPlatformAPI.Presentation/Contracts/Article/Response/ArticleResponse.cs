@@ -1,4 +1,5 @@
-﻿using PersonalBloggingPlatformAPI.Domain.Entities;
+﻿using PersonalBloggingPlatformAPI.Application.DTOs;
+using PersonalBloggingPlatformAPI.Domain.Entities;
 
 namespace PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Response
 {
@@ -6,5 +7,6 @@ namespace PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Response
         Guid ArticleId,
         string Title,
         string BodyText,
-        DateTime PublishingDate);
+        DateTime PublishingDate,
+        List<TagDto?> Tags);
 }

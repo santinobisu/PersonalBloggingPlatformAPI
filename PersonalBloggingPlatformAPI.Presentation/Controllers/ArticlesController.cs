@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PersonalBloggingPlatformAPI.Application.DTOs;
 using PersonalBloggingPlatformAPI.Application.Interfaces.Articles;
 using PersonalBloggingPlatformAPI.Domain.Entities;
 using PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Request;
@@ -18,17 +19,12 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
         [HttpPost]
         public async Task<ActionResult<ArticleResponse>> CreateArticle([FromBody] CreateArticleRequest request)
         {
-            var newArticle = new Article
-            {
-                ArticleId = new Guid(),
-                Title = request.Title,
-                BodyText = request.BodyText,
-                PublishingDate = DateTime.UtcNow
-            };
+
+            Article newArticle = null;
 
             try
             {
-                await _articleService.CreateArticle(newArticle);
+                newArticle = await _articleService.CreateArticle(request.Title, request.BodyText, request.Tags);
             }
             catch (ArgumentException ex)
             {
@@ -36,7 +32,7 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
                     detail: ex.Message);
             }
 
-            return CreatedAtGetArticle(newArticle);
+            return CreatedAtGetArticle(MapToArticleDto(newArticle));
         }
 
         [HttpGet("{id:guid}")]
@@ -46,7 +42,7 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
 
             return getArticleResult is null ? 
                 Problem(statusCode: StatusCodes.Status404NotFound, detail: $"Article not found (articleId {id})")
-                : Ok(getArticleResult);
+                : Ok(MapToArticleDto(getArticleResult));
 
         }
 
@@ -61,43 +57,52 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ArticleResponse>> UpdateArticle(Guid id, [FromBody] UpdateArticleRequest request)
         {
-            Article updatedArticle = new Article
-            {
-                Title = request.Title,
-                BodyText = request.BodyText
-            };
 
             Article result = null;
             try
             {
-               result = await _articleService.UpdateArticle(id, updatedArticle);
+               result = await _articleService.UpdateArticle(id, request.Title, request.BodyText, request.Tags);
             }
+
             catch (ArgumentException ex)
             {
                 return Problem(statusCode: StatusCodes.Status400BadRequest,
                     detail: ex.Message);
             }
 
-            return result is null?
+            return result is null ?
                 Problem(statusCode: StatusCodes.Status404NotFound, detail: $"Article not found (articleId {id})")
-                : NoContent();
+                : Ok(MapToArticleDto(result));
         }
 
-        private static ArticleResponse MapArticleResponse(Article article)
+        private static ArticleResponse MapArticleResponse(ArticleDto articleDto)
         {
             return new ArticleResponse(
-                article.ArticleId,
-                article.Title,
-                article.BodyText,
-                article.PublishingDate);
+                articleDto.ArticleId,
+                articleDto.Title,
+                articleDto.BodyText,
+                articleDto.PublishingDate,
+                articleDto.Tags);
         }
 
-        private ActionResult CreatedAtGetArticle(Article article)
+        private ActionResult CreatedAtGetArticle(ArticleDto articleDto)
         {
             return CreatedAtAction(
                 actionName: nameof(GetArticle),
-                routeValues: new {id = article.ArticleId },
-                value: MapArticleResponse(article));
+                routeValues: new {id = articleDto.ArticleId },
+                value: MapArticleResponse(articleDto));
+        }
+
+        private ArticleDto MapToArticleDto(Article article)
+        {
+            return new ArticleDto
+            {
+                ArticleId = article.ArticleId,
+                Title = article.Title,
+                BodyText = article.BodyText,
+                PublishingDate = article.PublishingDate,
+                Tags = article.Tags.Select(t => new TagDto { TagId = t.TagId, Name = t.Name }).ToList()
+            };
         }
     }
 }

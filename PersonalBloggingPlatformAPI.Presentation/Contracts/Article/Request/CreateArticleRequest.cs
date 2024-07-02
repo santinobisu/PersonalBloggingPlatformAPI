@@ -9,5 +9,6 @@ namespace PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Request
 {
     public record CreateArticleRequest(
         string Title,
-        string BodyText);
+        string BodyText,
+        List<int?> Tags);
 }

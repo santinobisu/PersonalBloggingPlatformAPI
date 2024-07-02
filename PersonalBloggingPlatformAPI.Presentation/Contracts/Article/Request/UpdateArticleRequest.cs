@@ -4,5 +4,6 @@ namespace PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Request
 {
     public record UpdateArticleRequest(
         string Title,
-        string BodyText);
+        string BodyText,
+        List<int?> Tags);
 }

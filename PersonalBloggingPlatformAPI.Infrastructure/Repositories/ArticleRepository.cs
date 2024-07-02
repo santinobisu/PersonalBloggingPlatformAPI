@@ -1,4 +1,5 @@
-﻿using PersonalBloggingPlatformAPI.Application.Interfaces.Articles;
+﻿using Microsoft.EntityFrameworkCore;
+using PersonalBloggingPlatformAPI.Application.Interfaces.Articles;
 using PersonalBloggingPlatformAPI.Domain.Entities;
 using PersonalBloggingPlatformAPI.Infrastructure.Data;
 using System;
@@ -42,13 +43,16 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
 
         public async Task<Article> GetArticle(Guid id)
         {
-            var result = await _appDbContext.Articles.FindAsync(id);
-
-            return result;
+            return await _appDbContext.Articles
+                .Include(a => a.Tags)
+                .FirstOrDefaultAsync(a => a.ArticleId == id);
         }
+
         public async Task<Article> UpdateArticle(Guid id, Article article)
         {
-            var articleToUpdate = await _appDbContext.Articles.FindAsync(id);
+            var articleToUpdate = await _appDbContext.Articles
+                .Include(a => a.Tags)
+                .FirstOrDefaultAsync(a => a.ArticleId == id);
 
             if (articleToUpdate is null)
             {
@@ -58,9 +62,25 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
             articleToUpdate.Title = article.Title;
             articleToUpdate.BodyText = article.BodyText;
 
+            articleToUpdate.Tags.Clear();
+
+
+            foreach (var tag in article.Tags)
+            {
+                var existingTag = await _appDbContext.Tags.FindAsync(tag.TagId);
+                if (existingTag != null)
+                {
+                    articleToUpdate.Tags.Add(existingTag);
+                }
+                else
+                {
+                    articleToUpdate.Tags.Add(new Tag { TagId = tag.TagId, Name = tag.Name });
+                }
+            }
+
             await _appDbContext.SaveChangesAsync();
 
-            return article;
+            return articleToUpdate;
         }
     }
 }

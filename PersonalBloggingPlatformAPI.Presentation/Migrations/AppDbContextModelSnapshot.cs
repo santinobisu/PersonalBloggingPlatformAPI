@@ -17,6 +17,21 @@ namespace PersonalBloggingPlatformAPI.Presentation.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
 
+            modelBuilder.Entity("ArticleTag", b =>
+                {
+                    b.Property<Guid>("ArticlesArticleId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("TagsTagId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ArticlesArticleId", "TagsTagId");
+
+                    b.HasIndex("TagsTagId");
+
+                    b.ToTable("ArticleTag", (string)null);
+                });
+
             modelBuilder.Entity("PersonalBloggingPlatformAPI.Domain.Entities.Article", b =>
                 {
                     b.Property<Guid>("ArticleId")
@@ -25,7 +40,6 @@ namespace PersonalBloggingPlatformAPI.Presentation.Migrations
 
                     b.Property<string>("BodyText")
                         .IsRequired()
-                        .HasMaxLength(1000)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("PublishingDate")
@@ -33,7 +47,6 @@ namespace PersonalBloggingPlatformAPI.Presentation.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
                     b.HasKey("ArticleId");
@@ -43,9 +56,9 @@ namespace PersonalBloggingPlatformAPI.Presentation.Migrations
 
             modelBuilder.Entity("PersonalBloggingPlatformAPI.Domain.Entities.Tag", b =>
                 {
-                    b.Property<Guid>("TagId")
+                    b.Property<int>("TagId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -54,6 +67,53 @@ namespace PersonalBloggingPlatformAPI.Presentation.Migrations
                     b.HasKey("TagId");
 
                     b.ToTable("Tags");
+
+                    b.HasData(
+                        new
+                        {
+                            TagId = 1,
+                            Name = "Technology"
+                        },
+                        new
+                        {
+                            TagId = 2,
+                            Name = "Science"
+                        },
+                        new
+                        {
+                            TagId = 3,
+                            Name = "Tutorials"
+                        },
+                        new
+                        {
+                            TagId = 4,
+                            Name = "Trips"
+                        },
+                        new
+                        {
+                            TagId = 5,
+                            Name = "Videogames"
+                        },
+                        new
+                        {
+                            TagId = 6,
+                            Name = "Education"
+                        });
+                });
+
+            modelBuilder.Entity("ArticleTag", b =>
+                {
+                    b.HasOne("PersonalBloggingPlatformAPI.Domain.Entities.Article", null)
+                        .WithMany()
+                        .HasForeignKey("ArticlesArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PersonalBloggingPlatformAPI.Domain.Entities.Tag", null)
+                        .WithMany()
+                        .HasForeignKey("TagsTagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
