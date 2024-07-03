@@ -97,6 +97,30 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
             return Ok(MapListToArticleResponse(MapListToArticleDto(articles)));
         }
 
+        [HttpGet("byTags")]
+        public async Task<ActionResult<List<ArticleResponse>>> GetArticlesByTags([FromQuery] List<string> tagNames)
+        {
+            if (tagNames == null || tagNames.Count == 0)
+            {
+                return Problem(statusCode: StatusCodes.Status400BadRequest, detail: "At least one Tag must be provided in Order to perform data filtering");
+            }
+
+            var articles = await _articleService.GetArticlesByTags(tagNames);
+            return Ok(MapListToArticleResponse(MapListToArticleDto(articles)));
+        }
+
+        [HttpGet("byPublishingDate")]
+        public async Task<ActionResult<List<ArticleResponse>>> GetArticlesByPublishingDate([FromQuery] DateTime fromDate, [FromQuery] DateTime toDate)
+        {
+            if (!IsValidDate(fromDate) || !IsValidDate(toDate))
+            {
+                return Problem(statusCode: StatusCodes.Status400BadRequest, detail: "Dates must be valid and in correct format.");
+            }
+
+            var articles = await _articleService.GetArticlesByPublishingDate(fromDate, toDate);
+            return Ok(MapListToArticleResponse(MapListToArticleDto(articles)));
+        }
+
         private static ArticleResponse MapArticleResponse(ArticleDto articleDto)
         {
             return new ArticleResponse(
@@ -151,6 +175,11 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
             }
 
             return articleResponseList;
+        }
+
+        private bool IsValidDate(DateTime? date)
+        {
+            return date.HasValue && (date.Value > DateTime.MinValue && date.Value < DateTime.MaxValue);
         }
     }
 }

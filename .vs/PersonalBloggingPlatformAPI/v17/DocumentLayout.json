@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\personalbloggingplatformapi.presentation\\controllers\\articlescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|e:\\personalbloggingplatform\\personalbloggingplatformapi\\personalbloggingplatformapi.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|solutionrelative:personalbloggingplatformapi.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|e:\\personalbloggingplatform\\personalbloggingplatformapi\\personalbloggingplatformapi.presentation\\controllers\\articlescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|solutionrelative:personalbloggingplatformapi.presentation\\controllers\\articlescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|e:\\personalbloggingplatform\\personalbloggingplatformapi\\personalbloggingplatformapi.presentation\\middlewares\\jsonexceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1CF271FC-0697-40DB-BE30-F5D7DFA4BEBD}|PersonalBloggingPlatformAPI.Presentation\\PersonalBloggingPlatformAPI.Presentation.csproj|solutionrelative:personalbloggingplatformapi.presentation\\middlewares\\jsonexceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{196099D3-3EC6-4FBD-B49D-ABC3B676E27F}|PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj|e:\\personalbloggingplatform\\personalbloggingplatformapi\\personalbloggingplatformapi.application\\interfaces\\articles\\iarticleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{196099D3-3EC6-4FBD-B49D-ABC3B676E27F}|PersonalBloggingPlatformAPI.Application\\PersonalBloggingPlatformAPI.Application.csproj|solutionrelative:personalbloggingplatformapi.application\\interfaces\\articles\\iarticleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9AE2CC8D-24FB-4A1E-9C3B-C89D625061CB}|PersonalBloggingPlatformAPI.Infrastructure\\PersonalBloggingPlatformAPI.Infrastructure.csproj|E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\personalbloggingplatformapi.infrastructure\\repositories\\articlerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -30,8 +34,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Presentation\\Program.cs",
+              "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\Program.cs",
+              "RelativeToolTip": "PersonalBloggingPlatformAPI.Presentation\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T14:55:40.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IArticleService.cs",
+              "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Application\\Interfaces\\Articles\\IArticleService.cs",
+              "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Application\\Interfaces\\Articles\\IArticleService.cs",
+              "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Application\\Interfaces\\Articles\\IArticleService.cs",
+              "RelativeToolTip": "PersonalBloggingPlatformAPI.Application\\Interfaces\\Articles\\IArticleService.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAA7wAwAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T14:35:50.827Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -39,56 +69,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "JsonExceptionHandlingMiddleware.cs",
-              "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\Middlewares\\JsonExceptionHandlingMiddleware.cs",
-              "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Presentation\\Middlewares\\JsonExceptionHandlingMiddleware.cs",
-              "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\Middlewares\\JsonExceptionHandlingMiddleware.cs",
-              "RelativeToolTip": "PersonalBloggingPlatformAPI.Presentation\\Middlewares\\JsonExceptionHandlingMiddleware.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAxwBcAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T13:55:19.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "ArticlesController.cs",
               "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\Controllers\\ArticlesController.cs",
               "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Presentation\\Controllers\\ArticlesController.cs",
               "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Presentation\\Controllers\\ArticlesController.cs",
               "RelativeToolTip": "PersonalBloggingPlatformAPI.Presentation\\Controllers\\ArticlesController.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAUwGEAAAAJAAAA",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAAwIwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-01T15:18:46.958Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ArticleService.cs",
               "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Application\\Services\\ArticleService.cs",
               "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Application\\Services\\ArticleService.cs",
               "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Application\\Services\\ArticleService.cs",
               "RelativeToolTip": "PersonalBloggingPlatformAPI.Application\\Services\\ArticleService.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAowDYAAAA1AAAA",
+              "ViewState": "AQIAADEAAAAAAAAAAAAUwEAAAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-03T13:38:41.232Z"
+              "WhenOpened": "2024-07-03T13:38:41.232Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ArticleRepository.cs",
               "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Infrastructure\\Repositories\\ArticleRepository.cs",
               "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Infrastructure\\Repositories\\ArticleRepository.cs",
               "ToolTip": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Infrastructure\\Repositories\\ArticleRepository.cs",
               "RelativeToolTip": "PersonalBloggingPlatformAPI.Infrastructure\\Repositories\\ArticleRepository.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAqwFkAAAAfAAAA",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAiwGcAAABSAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-02T13:41:17.033Z"
+              "WhenOpened": "2024-07-02T13:41:17.033Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "E:\\PersonalBloggingPlatform\\PersonalBloggingPlatformAPI\\PersonalBloggingPlatformAPI.Infrastructure\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "PersonalBloggingPlatformAPI.Infrastructure\\Data\\AppDbContext.cs",
@@ -96,7 +115,8 @@
               "RelativeToolTip": "PersonalBloggingPlatformAPI.Infrastructure\\Data\\AppDbContext.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T15:24:19.616Z"
+              "WhenOpened": "2024-06-28T15:24:19.616Z",
+              "EditorCaption": ""
             }
           ]
         }

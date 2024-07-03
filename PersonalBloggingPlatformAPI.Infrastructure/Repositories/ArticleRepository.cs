@@ -89,5 +89,23 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
                 .Include(a => a.Tags)
                 .ToListAsync();
         }
+
+        public async Task<List<Article>> GetArticlesByTags(List<string> tagNames)
+        {
+            IQueryable<Article> query = _appDbContext.Articles.Include(a => a.Tags);
+
+            query = query.Where(a => a.Tags.Any(t => tagNames.Contains(t.Name)));
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<Article>> GetArticlesByPublishingDate(DateTime fromDate, DateTime toDate)
+        {
+            IQueryable<Article> query = _appDbContext.Articles.Include(a => a.Tags);
+
+            query = query.Where(a => a.PublishingDate >= fromDate && a.PublishingDate <= toDate);
+
+            return await query.ToListAsync();
+        }
     }
 }

@@ -9,5 +9,7 @@ namespace PersonalBloggingPlatformAPI.Application.Interfaces.Articles
         Task<Article?> UpdateArticle(Guid id, string title, string bodyText, List<Tag> tags);
         Task<Article?> DeleteArticle(Guid id);
         Task<List<Article>> GetAll();
+        Task<List<Article>> GetArticlesByTags(List<string> tagNames);
+        Task<List<Article>> GetArticlesByPublishingDate(DateTime fromDate, DateTime toDate);
     }
 }

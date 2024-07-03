@@ -14,5 +14,7 @@ namespace PersonalBloggingPlatformAPI.Application.Interfaces.Articles
         Task<Article?> UpdateArticle(Guid id, Article article);
         Task<Article?> DeleteArticle(Guid id);
         Task<List<Article>> GetAll();
+        Task<List<Article>> GetArticlesByTags(List<string> tagNames);
+        Task<List<Article>> GetArticlesByPublishingDate(DateTime fromDate, DateTime toDate);
     }
 }

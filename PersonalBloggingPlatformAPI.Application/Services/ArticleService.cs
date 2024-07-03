@@ -54,5 +54,15 @@ namespace PersonalBloggingPlatformAPI.Application.Services
         {
             return await _articleRepository.GetAll();
         }
+
+        public async Task<List<Article>> GetArticlesByTags(List<string> tagNames)
+        {
+            return await _articleRepository.GetArticlesByTags(tagNames);
+        }
+
+        public async Task<List<Article>> GetArticlesByPublishingDate(DateTime fromDate, DateTime toDate)
+        {
+            return await _articleRepository.GetArticlesByPublishingDate(fromDate, toDate);
+        }
     }
 }
