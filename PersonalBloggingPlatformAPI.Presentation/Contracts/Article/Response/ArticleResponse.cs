@@ -8,5 +8,5 @@ namespace PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Response
         string Title,
         string BodyText,
         DateTime PublishingDate,
-        List<TagDto?> Tags);
+        List<TagDto> Tags);
 }

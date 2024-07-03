@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PersonalBloggingPlatformAPI.Application.DTOs;
 using PersonalBloggingPlatformAPI.Application.Interfaces.Articles;
+using PersonalBloggingPlatformAPI.Application.Interfaces.Tags;
 using PersonalBloggingPlatformAPI.Domain.Entities;
 using PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Request;
 using PersonalBloggingPlatformAPI.Presentation.Contracts.Article.Response;
@@ -11,20 +12,28 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
     public class ArticlesController : ControllerBase
     {
         private readonly IArticleService _articleService;
-        public ArticlesController(IArticleService articleService)
+        private readonly ITagService _tagService;
+        public ArticlesController(IArticleService articleService, ITagService tagService)
         {
             _articleService = articleService;
+            _tagService = tagService;
         }
 
         [HttpPost]
         public async Task<ActionResult<ArticleResponse>> CreateArticle([FromBody] CreateArticleRequest request)
         {
+            if (request == null)
+            {
+                return BadRequest(new { message = "Invalid request body." });
+            }
 
-            Article newArticle = null;
+            var tags = await _tagService.HandleTags(request.Tags);
 
             try
             {
-                newArticle = await _articleService.CreateArticle(request.Title, request.BodyText, request.Tags);
+                var newArticle = await _articleService.CreateArticle(request.Title, request.BodyText, tags);
+
+                return CreatedAtGetArticle(MapToArticleDto(newArticle));
             }
             catch (ArgumentException ex)
             {
@@ -32,7 +41,6 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
                     detail: ex.Message);
             }
 
-            return CreatedAtGetArticle(MapToArticleDto(newArticle));
         }
 
         [HttpGet("{id:guid}")]
@@ -57,11 +65,20 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<ArticleResponse>> UpdateArticle(Guid id, [FromBody] UpdateArticleRequest request)
         {
+            if (request == null)
+            {
+                return BadRequest(new { message = "Invalid request body." });
+            }
 
-            Article result = null;
+            var tags = await _tagService.HandleTags(request.Tags);
+
             try
             {
-               result = await _articleService.UpdateArticle(id, request.Title, request.BodyText, request.Tags);
+                var  result = await _articleService.UpdateArticle(id, request.Title, request.BodyText, tags);
+
+                return result is null ?
+                Problem(statusCode: StatusCodes.Status404NotFound, detail: $"Article not found (articleId {id})")
+                : Ok(MapToArticleDto(result));
             }
 
             catch (ArgumentException ex)
@@ -70,9 +87,14 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
                     detail: ex.Message);
             }
 
-            return result is null ?
-                Problem(statusCode: StatusCodes.Status404NotFound, detail: $"Article not found (articleId {id})")
-                : Ok(MapToArticleDto(result));
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<ArticleResponse>>> GetAll()
+        {
+            var articles = await _articleService.GetAll();
+
+            return Ok(MapListToArticleResponse(MapListToArticleDto(articles)));
         }
 
         private static ArticleResponse MapArticleResponse(ArticleDto articleDto)
@@ -103,6 +125,32 @@ namespace PersonalBloggingPlatformAPI.Presentation.Controllers
                 PublishingDate = article.PublishingDate,
                 Tags = article.Tags.Select(t => new TagDto { TagId = t.TagId, Name = t.Name }).ToList()
             };
+        }
+
+        private List<ArticleDto> MapListToArticleDto(List<Article> articles)
+        {
+            List<ArticleDto> articleDtoList = new List<ArticleDto>();
+
+            foreach (Article article in articles)
+            {
+                var articleDto = MapToArticleDto(article);
+                articleDtoList.Add(articleDto);
+            }
+
+            return articleDtoList;
+        }
+
+        private List<ArticleResponse> MapListToArticleResponse(List<ArticleDto> articles)
+        {
+            List<ArticleResponse> articleResponseList = new List<ArticleResponse>();
+
+            foreach (ArticleDto article in articles)
+            {
+                var articleResponse = MapArticleResponse(article);
+                articleResponseList.Add(articleResponse);
+            }
+
+            return articleResponseList;
         }
     }
 }
