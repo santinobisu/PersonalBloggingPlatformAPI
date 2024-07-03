@@ -25,7 +25,7 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
             return newArticle;
         }
 
-        public async Task<Article> DeleteArticle(Guid id)
+        public async Task<Article?> DeleteArticle(Guid id)
         {
             var articleToDelete = await _appDbContext.Articles.FindAsync(id);
 
@@ -41,14 +41,14 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
             return articleToDelete;
         }
 
-        public async Task<Article> GetArticle(Guid id)
+        public async Task<Article?> GetArticle(Guid id)
         {
             return await _appDbContext.Articles
                 .Include(a => a.Tags)
                 .FirstOrDefaultAsync(a => a.ArticleId == id);
         }
 
-        public async Task<Article> UpdateArticle(Guid id, Article article)
+        public async Task<Article?> UpdateArticle(Guid id, Article article)
         {
             var articleToUpdate = await _appDbContext.Articles
                 .Include(a => a.Tags)
@@ -81,6 +81,13 @@ namespace PersonalBloggingPlatformAPI.Infrastructure.Repositories
             await _appDbContext.SaveChangesAsync();
 
             return articleToUpdate;
+        }
+
+        public async Task<List<Article>> GetAll()
+        {
+            return await _appDbContext.Articles
+                .Include(a => a.Tags)
+                .ToListAsync();
         }
     }
 }
