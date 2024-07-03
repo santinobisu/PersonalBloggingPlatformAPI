@@ -4,10 +4,19 @@ _Note: You should use dotnet run --project PersonalBloggingPlatformAPI.Presentat
 ## Endpoints
 ### » Post /Articles
 JSON Structure:
+
 {
+
+
   "Title": "" (Between 3 and 30 chars) (Required)
+
+  
   "BodyText": "" (Between 30 and 1000 chars) (Required)
+
+  
   "Tags": [] (Tags should be specified with their Id, which are Integers) (Optional)
+
+  
 }
 
 Can return:
@@ -53,10 +62,20 @@ Can return:
 ### » Update /Articles/id
 Updates the targeted Article.
 JSON structure should be the same as the POST endpoint:
+
+
 {
+
+
   "Title": "" (Between 3 and 30 chars) (Required)
+
+  
   "BodyText": "" (Between 30 and 1000 chars) (Required)
+
+  
   "Tags": [] (Tags should be specified with their Id, which are Integers) (Optional)
+
+  
 }
 
 Can return: 
